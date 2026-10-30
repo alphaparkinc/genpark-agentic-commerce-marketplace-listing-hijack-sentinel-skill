@@ -1,0 +1,69 @@
+{
+  "name": "genpark-agentic-commerce-marketplace-listing-hijack-sentinel-skill",
+  "version": "1.0.0",
+  "title": "Marketplace Listing Hijacking & ASIN Piggyback Sentinel Skill",
+  "description": "Amazon Brand Registry ASIN detail page unauthorized attribute modification crawler, buy-box piggybacking detection, and trademark takedown notice drafter. Built for GenPark (https://www.genpark.ai).",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.linkedin.com/company/92955550",
+  "category": "agentic-commerce",
+  "topics": [
+    "listing-hijacking",
+    "asin-piggybacking",
+    "brand-registry",
+    "trademark-protection",
+    "agentic-commerce",
+    "model-context-protocol",
+    "genpark"
+  ],
+  "tools": [
+    {
+      "name": "detect_listing_hijack_tampering",
+      "description": "Scan listing title, brand name, and image hashes against brand registry master attributes to flag unauthorized alterations.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "asin": {
+            "type": "string"
+          },
+          "master_brand_name": {
+            "type": "string"
+          },
+          "current_page_brand": {
+            "type": "string"
+          },
+          "unauthorized_sellers_count": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "asin",
+          "master_brand_name",
+          "current_page_brand"
+        ]
+      }
+    },
+    {
+      "name": "generate_brand_registry_trademark_takedown",
+      "description": "Draft formal Amazon Brand Registry / DMCA Notice of Infringement for rogue piggyback sellers.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "asin": {
+            "type": "string"
+          },
+          "trademark_reg_number": {
+            "type": "string"
+          },
+          "violator_merchant_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "asin",
+          "trademark_reg_number",
+          "violator_merchant_id"
+        ]
+      }
+    }
+  ]
+}
